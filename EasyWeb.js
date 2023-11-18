@@ -147,7 +147,51 @@ const EasyWebEvents = {
         } catch (error) {
           console.error('Error loading animations:', error);
         }
-    },
+      },
+
+      createCustomAnimation: (animationName, animationDefinition) => {
+        EasyWebEvents.animations[animationName] = {
+          name: animationName,
+          customProperties: true,
+          animationDefinition: animationDefinition
+        };
+      },
+
+      animateWithCustomProperties: (element, animationName, duration = 1000, timingFunction = 'ease') => {
+        const animation = EasyWebEvents.animations[animationName];
+        if (animation && animation.customProperties && animation.animationDefinition) {
+          const { keyframes, customProperties } = animation.animationDefinition;
+          if (keyframes && Array.isArray(keyframes) && customProperties) {
+            let keyframeIndex = 0;
+            const startTime = performance.now();
+    
+            const applyKeyframe = (time) => {
+              const elapsed = time - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+    
+              const style = {};
+              customProperties.forEach(property => {
+                const { property: propName, from, to } = property;
+                const delta = to - from;
+                const value = from + delta * progress;
+                style[propName] = `${value}${property.unit || ''}`;
+              });
+    
+              Object.assign(element.style, style);
+    
+              if (progress < 1) {
+                requestAnimationFrame(applyKeyframe);
+              }
+            };
+    
+            requestAnimationFrame(applyKeyframe);
+          } else {
+            console.error('Invalid animation definition.');
+          }
+        } else {
+          console.error('Custom animation not found or invalid.');
+        }
+      }
 
   };
 
