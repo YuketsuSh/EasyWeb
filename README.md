@@ -29,3 +29,7 @@ EasyWebEvents.on(element, 'click', (event) => {
 // Configuring and triggering an animation
 EasyWebEvents.animate(element, 'fadeInOut', 1500, 'ease-in-out');
 ```
+
+## Documentation
+
+Find the API documentation [here](https://github.com/YuketsuSh/EasyWeb/blob/main/docs/Configuration.md).
