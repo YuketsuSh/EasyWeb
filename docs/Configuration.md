@@ -39,14 +39,25 @@ This file allows defining global parameters for the EasyWeb API. Here's an examp
       ],
       "duration": 1500,
       "timingFunction": "ease-in-out"
+    },
+    {
+      "name": "customAnimation",
+      "keyframes": [
+        { "opacity": 0, "transform": "translateX(-100%)", "offset": 0 },
+        { "opacity": 1, "transform": "translateX(0)", "offset": 0.5 },
+        { "opacity": 0, "transform": "translateX(100%)", "offset": 1 }
+      ],
+      "duration": 2000,
+      "timingFunction": "linear"
     }
     // Add other animations here
   ]
 }
 
+
 ```
 
 ### Description
 
-`animations`: List of pre-configured animations.
+`animations`: List of animations including pre-defined and user-created animations.
 Each animation includes properties such as `name`, `keyframes`, `duration`, and `timingFunction`.
