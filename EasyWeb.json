@@ -1,0 +1,7 @@
+{
+    "defaultAnimationDuration": 1000,
+    "defaultTimingFunction": "ease",
+    "scrollBehavior": "smooth",
+    "enablePageScrollOnInit": true
+  }
+  
