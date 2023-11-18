@@ -1,4 +1,7 @@
 const EasyWebEvents = {
+
+    animations: {},
+
     on: (element, eventType, callback) => {
       element.addEventListener(eventType, callback);
     },
@@ -129,6 +132,21 @@ const EasyWebEvents = {
           width: window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
           height: window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight,
         };
+    },
+
+    loadAnimations: async (animatedConfigPath) => {
+        try {
+          const response = await fetch(animatedConfigPath);
+          const animatedConfig = await response.json();
+    
+          if (animatedConfig && animatedConfig.animations) {
+            animatedConfig.animations.forEach(animation => {
+              EasyWebEvents.animations[animation.name] = animation;
+            });
+          }
+        } catch (error) {
+          console.error('Error loading animations:', error);
+        }
     },
 
   };
