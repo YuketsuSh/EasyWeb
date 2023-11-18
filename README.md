@@ -1,19 +1,26 @@
-# EasyWeb
+# EasyWeb - JavaScript Web Development API
 
-EasyWeb is a JavaScript API designed to simplify front-end development by providing tools for handling events, managing CSS animations, transitions, and configuring web parameters effortlessly.
+EasyWeb is a versatile JavaScript API designed to simplify web development tasks and facilitate event handling, animations, and more. This API offers functionalities for easy integration across various web frameworks and provides flexibility in configuration.
 
 ## Features
 
-- **Event Handling:** Simplified event listeners and removal.
-- **Animation Management:** Easily handle CSS animations and transitions.
-- **Configuration:** Load configuration via JSON for easy setup.
-- **Page Scroll Control:** Enable/disable page scrolling.
-- **Utility Functions:** Includes window size retrieval and more.
+- **Event Handling:** Simplifies event attachment and removal on HTML elements.
+- **Configuration:** Easily load and manage configurations using `loadConfig` method with customizable paths.
+- **Animation Support:** Utilize pre-defined CSS-based animations from the provided `animated.json` configuration file.
+- **Custom Animation Creation:** Define and create your own animations using JSON configuration.
+- **Scroll Control:** Enable or disable page scrolling easily.
+- **Element Animation:** Initiate element animations using `animate` and `stopAnimation` methods.
+- **Transition Management:** Apply transitions to elements using `transition` and `removeTransition` methods.
+- **Utilities:** Includes utilities like `getClickCoordinates`, `delayExecution`, `isAnimationSupported`, `isTransitionSupported`, `getWindowSize`, and more.
 
-## Usage
+## Getting Started
 
-1. Include the `EasyWeb.js` script in your project.
-2. Initialize EasyWebEvents using `EasyWebEvents.init()` to load configurations and set up animations.
+To start using EasyWeb in your project:
+
+1. Include the EasyWeb script in your HTML:
+   ```html
+   <script src="path/to/EasyWeb.js"></script> or <script src="https://api.quantiumflow.com/EasyWeb.js"></script>
+   ```
 
 ## Example
 
