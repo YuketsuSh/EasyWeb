@@ -1,6 +1,6 @@
-# EasyWebEvents
+# EasyWeb
 
-EasyWebEvents is a JavaScript API designed to simplify front-end development by providing tools for handling events, managing CSS animations, transitions, and configuring web parameters effortlessly.
+EasyWeb is a JavaScript API designed to simplify front-end development by providing tools for handling events, managing CSS animations, transitions, and configuring web parameters effortlessly.
 
 ## Features
 
@@ -12,7 +12,7 @@ EasyWebEvents is a JavaScript API designed to simplify front-end development by 
 
 ## Usage
 
-1. Include the `EasyWebEvents.js` script in your project.
+1. Include the `EasyWeb.js` script in your project.
 2. Initialize EasyWebEvents using `EasyWebEvents.init()` to load configurations and set up animations.
 
 ## Example
