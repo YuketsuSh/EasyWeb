@@ -49,8 +49,25 @@ This file allows defining global parameters for the EasyWeb API. Here's an examp
       ],
       "duration": 2000,
       "timingFunction": "linear"
+    },
+    {
+      "name": "pulseEffect",
+      "customProperties": true,
+      "animationDefinition": {
+        "keyframes": [
+          { "scale": 1, "offset": 0 },
+          { "scale": 1.5, "offset": 0.5 },
+          { "scale": 1, "offset": 1 }
+        ],
+        "customProperties": [
+          {
+            "property": "scale",
+            "from": 1,
+            "to": 1.5
+          }
+        ]
+      }
     }
-    // Add other animations here
   ]
 }
 
@@ -61,3 +78,4 @@ This file allows defining global parameters for the EasyWeb API. Here's an examp
 
 `animations`: List of animations including pre-defined and user-created animations.
 Each animation includes properties such as `name`, `keyframes`, `duration`, and `timingFunction`.
+For user-created animations with `customProperties`, the `animationDefinition` allows specifying custom keyframes and properties.
