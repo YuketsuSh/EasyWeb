@@ -1,12 +1,12 @@
-## EasyWebEvents API Configuration
+## EasyWeb API Configuration
 
-The EasyWebEvents API offers the capability to configure its settings via JSON files.<br> These files allow defining default parameters, pre-configuring animations, and adding custom animations for easy use in your front-end projects.
+The EasyWeb API offers the capability to configure its settings via JSON files.<br> These files allow defining default parameters, pre-configuring animations, and adding custom animations for easy use in your front-end projects.
 
 ### Configuration Files
 
 #### EasyWeb.json
 
-This file allows defining global parameters for the EasyWebEvents API. Here's an example structure:
+This file allows defining global parameters for the EasyWeb API. Here's an example structure:
 
 ```json
 {
