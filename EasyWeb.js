@@ -21,32 +21,42 @@ const EasyWebEvents = {
         }
     },
 
-    init: async () => {
-        const easyWebConfig = await EasyWebEvents.loadConfig('EasyWeb.json');
-        const animatedConfig = await EasyWebEvents.loadConfig('animated.json');
+    init: async (configPaths = {}) => {
+        let easyWebConfigPath = 'EasyWeb.json';
+        let animatedConfigPath = 'animated.json';
+    
+        if (configPaths.easyWeb) {
+            easyWebConfigPath = configPaths.easyWeb;
+        }
+        if (configPaths.animated) {
+            animatedConfigPath = configPaths.animated;
+        }
+    
+        const easyWebConfig = await EasyWebEvents.loadConfig(easyWebConfigPath);
+        const animatedConfig = await EasyWebEvents.loadConfig(animatedConfigPath);
+    
         if (easyWebConfig) {
-            if (easyWebConfig.defaultAnimationDuration){
+            if (easyWebConfig.defaultAnimationDuration) {
                 EasyWebEvents.defaultAnimationDuration = easyWebConfig.defaultAnimationDuration;
             }
-            if (easyWebConfig.defaultTimingFunction){
+            if (easyWebConfig.defaultTimingFunction) {
                 EasyWebEvents.defaultTimingFunction = easyWebConfig.defaultTimingFunction;
             }
+            if (easyWebConfig.enablePageScrollOnInit) {
+                EasyWebEvents.enablePageScroll();
+            } else {
+                EasyWebEvents.disablePageScroll();
+            }
         }
-
-        if (animatedConfig && animatedConfig.animations){
+    
+        if (animatedConfig && animatedConfig.animations) {
             Object.keys(animatedConfig.animations).forEach((animationName) => {
                 const animation = animatedConfig.animations[animationName];
                 EasyWebEvents.animations[animationName] = animation;
             });
         }
-
-        if (easyWebConfig && easyWebConfig.enablePageScrollOnInit) {
-            EasyWebEvents.enablePageScroll();
-        }else{
-            EasyWebEvents.disablePageScroll();
-        }
-
     },
+    
   
     animate: (element, animationName, duration = 1000, timingFunction = 'ease') => {
       element.style.animation = `${animationName} ${duration}ms ${timingFunction}`;
@@ -196,4 +206,6 @@ const EasyWebEvents = {
   };
 
 EasyWebEvents.init();
-  
+if (window.easyWebConfigPaths) {
+    EasyWebEvents.init(window.easyWebConfigPaths);
+}
